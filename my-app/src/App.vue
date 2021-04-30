@@ -1,24 +1,28 @@
 <template>
     <div>
-        <div>猫眼电影</div>
+        <div class="a">猫眼电影</div>
         <main>
             <ul class="header-nav">
                 <li>
-                    北京天安门
+                    广州
                     <b>&#xe688;</b>
                 </li>
                 <li>
-                    <span>热映</span>
-                    <span>待映</span>
+                    <span @click="goto1" :class="{act:panduan}">热映</span>
+                    <span @click="goto2" :class="{act:panduan}" >待映</span>
                 </li>
                 <li>
                     <b>&#xe617;</b>
                 </li>
             </ul>
 
-            <div class="box"></div>
+            <div class="box">
+               <!-- 热映 -->
+               <router-view></router-view>
+            </div>
         </main>
-        <nv>
+      
+        <nav>
             <ul class="nav-footer">
                 <li class="active">
                     <b>&#xe8ae;</b>
@@ -33,14 +37,35 @@
                     <span>我的</span>
                 </li>
             </ul>
-        </nv>
+        </nav>
     </div>
 </template>
 
 <script>
-
+// import Reying from "@/components/Reying.vue"
 export default {
-
+    name: 'App',
+    // components:{
+    //   Daying,
+    //   Reying,
+    // },
+    data(){
+      return{
+        panduan:''
+      }
+    },
+    methods:{
+      goto1(){
+         this.panduan = true
+         this.$router.push('/reying').catch(()=>{})
+      },
+      goto2(){
+         this.$router.push('/daiying').catch(()=>{})
+         this.panduan = true
+      }
+     
+    },
+    
 }
 </script>
 
@@ -57,12 +82,11 @@ export default {
         url('./assets/icons/iconfont.ttf') format('truetype'),
         url('./assets/icons/iconfont.svg#iconfont') format('svg');
 }
-
 div {
     height: 100%;
     display: flex;
     flex-direction: column;
-    > div {
+    > div.a {
         height: 0.44rem;
         background-color: $primary-color;
         line-height: 0.44rem;
@@ -93,18 +117,24 @@ div {
                 b {
                     font-size: 0.12rem;
                 }
+               
             }
             > li:nth-child(2) {
                 align-items: center;
                 flex: 1;
                 display: flex;
                 justify-content: center;
+                
                 > span {
+                    cursor: pointer;
                     width: 0.6rem;
                     height: 100%;
                     font-weight: 600;
                     color: $font-primary-color;
                     line-height: 0.44rem;
+                //      &.act {
+                // color: $primary-color;
+                //    } //默认展示热映
                     &:last-child {
                         margin-left: 0.2rem;
                     }
@@ -122,6 +152,7 @@ div {
     }
     ul.nav-footer {
         height: 0.44rem;
+        // position: absolute;
         display: flex;
         box-sizing: border-box;
         @include border-top-1px;
@@ -141,5 +172,8 @@ div {
             }
         }
     }
-}
+      .act {
+     color: $primary-color;
+                   } 
+ }
 </style>
