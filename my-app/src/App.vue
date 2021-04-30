@@ -17,7 +17,6 @@
             </ul>
 
             <div class="box">
-               <!-- 热映 -->
                <router-view></router-view>
             </div>
         </main>
@@ -26,15 +25,15 @@
             <ul class="nav-footer">
                 <li class="active">
                     <b>&#xe8ae;</b>
-                    <span>电影</span>
+                    <span @click="goto3">电影</span>
                 </li>
                 <li>
                     <b>&#xe8c0;</b>
-                    <span>影院</span>
+                    <span @click="goto4">影院</span>
                 </li>
                 <li>
                     <b>&#xe62b;</b>
-                    <span>我的</span>
+                    <span @click="goto5">我的</span>
                 </li>
             </ul>
         </nav>
@@ -56,12 +55,20 @@ export default {
     },
     methods:{
       goto1(){
-         this.panduan = true
-         this.$router.push('/reying').catch(()=>{})
+        //  this.panduan = true
+         this.$router.push('/dianying/reying').catch(()=>{})
       },
       goto2(){
-         this.$router.push('/daiying').catch(()=>{})
-         this.panduan = true
+         this.$router.push('/dianying/daiying').catch(()=>{})
+      },
+       goto3(){
+         this.$router.push('/dianying').catch(()=>{})
+      },
+       goto4(){
+         this.$router.push('/yingyuan').catch(()=>{})
+      },
+       goto5(){
+         this.$router.push('/wode').catch(()=>{})
       }
      
     },

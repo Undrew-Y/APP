@@ -2,22 +2,25 @@
   <div>
    <ul>
        <li  v-for="v,i in hot" :key="i">
-           <div class="u1"><img src="../assets/pic1.png" alt=""></div>
+           <div class="u1"><img src="../../assets/pic1.png" alt=""></div>
            <div class="u2">
               <p class="p1">{{v.nm}} <span>{{v.wish}}</span><span>人想看</span></p>
               <p class="p2">{{v.cat}}</p>
               <p class="p2">{{v.star}}</p>
               <p class="p2">{{v.showInfo}}</p>
-              <div class="u3">预售</div>
+              <div class="u3" @click="b">预售</div>
            </div>
        </li>
    </ul>
   </div>
 </template>
+
 <script>
-export default{
+    import { mapState ,mapActions } from 'vuex'
+    export default {
+     
    data(){
-       return{
+       return {
            hot:[
                {img: "http://p0.meituan.net/movie/67a1fe8a23b913b305a37fed1c54b7a35019988.jpg",cat: "犯罪,剧情,动作",
                nm: "追虎擒龙",showInfo: "2021-05-01 本周六上映",star: "古天乐,梁家辉,吴镇宇",wish: 133535},
@@ -29,8 +32,18 @@ export default{
                ],
        }
    },
-  
-      
+   computed:{
+       ...mapState('reying',['reying']),
+   },mounted(){
+       this.add()
+   },
+   methods:{
+        ...mapActions('reying',['add']),
+       b(){
+        //    this.add()
+           console.log(this.reying);
+       }
+   }
 }
 </script>
 <style scoped>

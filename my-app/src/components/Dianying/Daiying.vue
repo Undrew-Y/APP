@@ -4,25 +4,25 @@
         <div class="d2">
             <ul>
                 <li>
-                    <div class="d3"><img src="../assets/pic1.png"></div>
+                    <div class="d3"><img src="../../assets/pic1.png"></div>
                     <div class="d4">速度与激情9</div>
                     <div class="d5">524815人想看</div>
                     <div class="d5">5月21日</div>
                 </li>
                 <li>
-                    <div class="d3"><img src="../assets/pic1.png"></div>
+                    <div class="d3"><img src="../../assets/pic1.png"></div>
                     <div class="d4">速度与激情9</div>
                     <div class="d5">524815人想看</div>
                     <div class="d5">5月21日</div>
                 </li>
                 <li>
-                    <div class="d3"><img src="../assets/pic1.png"></div>
+                    <div class="d3"><img src="../../assets/pic1.png"></div>
                     <div class="d4">速度与激情9</div>
                     <div class="d5">524815人想看</div>
                     <div class="d5">5月21日</div>
                 </li>
                 <li>
-                    <div class="d3"><img src="../assets/pic1.png"></div>
+                    <div class="d3"><img src="../../assets/pic1.png"></div>
                     <div class="d4">速度与激情9</div>
                     <div class="d5">524815人想看</div>
                     <div class="d5">5月21日</div>
@@ -34,7 +34,7 @@
                <a>周四</a>   
                <ul>
                  <li>
-                 <div class="u1"><img src="../assets/pic1.png" alt=""></div>
+                 <div class="u1"><img src="../../assets/pic1.png" alt=""></div>
                   <div class="u2">
                   <p class="p1">丹顶鹤女孩 <span>2461</span><span>人想看</span></p>
                   <p class="p2">爱情，剧情</p>
@@ -44,7 +44,7 @@
                   </div>
                   </li>
                   <li>
-                 <div class="u1"><img src="../assets/pic1.png" alt=""></div>
+                 <div class="u1"><img src="../../assets/pic1.png" alt=""></div>
                   <div class="u2">
                   <p class="p1">丹顶鹤女孩 <span>2461</span><span>人想看</span></p>
                   <p class="p2">爱情，剧情</p>
@@ -54,7 +54,7 @@
                   </div>
                   </li>
                    <li>
-                 <div class="u1"><img src="../assets/pic1.png" alt=""></div>
+                 <div class="u1"><img src="../../assets/pic1.png" alt=""></div>
                   <div class="u2">
                   <p class="p1">丹顶鹤女孩 <span>2461</span><span>人想看</span></p>
                   <p class="p2">爱情，剧情</p>
@@ -69,7 +69,7 @@
 </template>
 <script>
  export default {
-
+    
  }
 </script>
 
