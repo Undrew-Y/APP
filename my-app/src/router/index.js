@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
 const router = new Router({
-    linkExactActiveClass:'act',
+    // linkExactActiveClass:'act',
     routes:[
         { path:'/',redirect:'/dianying'},
         { path:'/dianying',component:()=>import('@/components/Dianying.vue'),

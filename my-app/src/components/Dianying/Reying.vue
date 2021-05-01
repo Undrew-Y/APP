@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div class="a">
    <ul>
-       <li  v-for="v,i in hot" :key="i">
+       <li  v-for="v,i in reying" :key="i">
            <div class="u1"><img src="../../assets/pic1.png" alt=""></div>
            <div class="u2">
               <p class="p1">{{v.nm}} <span>{{v.wish}}</span><span>人想看</span></p>
               <p class="p2">{{v.cat}}</p>
               <p class="p2">{{v.star}}</p>
               <p class="p2">{{v.showInfo}}</p>
-              <div class="u3" @click="b">预售</div>
+              <div class="u3">预售</div>
            </div>
        </li>
    </ul>
@@ -21,34 +21,25 @@
      
    data(){
        return {
-           hot:[
-               {img: "http://p0.meituan.net/movie/67a1fe8a23b913b305a37fed1c54b7a35019988.jpg",cat: "犯罪,剧情,动作",
-               nm: "追虎擒龙",showInfo: "2021-05-01 本周六上映",star: "古天乐,梁家辉,吴镇宇",wish: 133535},
-                {img: "http://p0.meituan.net/movie/67a1fe8a23b913b305a37fed1c54b7a35019988.jpg",cat: "犯罪,剧情,动作",
-               nm: "追虎擒龙",showInfo: "2021-05-01 本周六上映",star: "古天乐,梁家辉,吴镇宇",wish: 133535},
-               {img: "http://p0.meituan.net/movie/67a1fe8a23b913b305a37fed1c54b7a35019988.jpg",cat: "犯罪,剧情,动作",
-               nm: "追虎擒龙",showInfo: "2021-05-01 本周六上映",star: "古天乐,梁家辉,吴镇宇",wish: 133535},{img: "http://p0.meituan.net/movie/67a1fe8a23b913b305a37fed1c54b7a35019988.jpg",cat: "犯罪,剧情,动作",
-               nm: "追虎擒龙",showInfo: "2021-05-01 本周六上映",star: "古天乐,梁家辉,吴镇宇",wish: 133535},
-               ],
        }
    },
    computed:{
        ...mapState('reying',['reying']),
-   },mounted(){
+   },
+   mounted(){
        this.add()
    },
    methods:{
         ...mapActions('reying',['add']),
-       b(){
-        //    this.add()
-           console.log(this.reying);
-       }
    }
 }
 </script>
 <style scoped>
-    ul{
-        background-color:#ccc;
+    
+    ul{ 
+        height:5.1rem;
+        overflow: auto;
+        background-color:#fff;
     }
     ul>li{
         margin: 1px 0;
@@ -72,7 +63,7 @@
         float: left;
         width: 2.84rem;
         margin-top: 0.13rem;
-        background-color: yellow;
+        background-color: #fff;
         height:0.9rem ;
         }
     .u2>p{

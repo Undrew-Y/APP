@@ -1,79 +1,67 @@
 <template>
     <div>
+        <div class="aa">
         <p class="d1">近期最受欢迎</p>
         <div class="d2">
-            <ul>
-                <li>
+            <el-carousel :interval="5000" arrow="hover">
+            <!-- <el-carousel-item v-for="item in banner" :key="item"> -->
+                <ul style=" list-style: none;
+       width: 100rem;">
+                <li v-for="u,i in banner" :key="i" style=" width: 0.85rem;
+         float: left;
+         margin:0 0.04rem;overflow:auto;">
                     <div class="d3"><img src="../../assets/pic1.png"></div>
-                    <div class="d4">速度与激情9</div>
-                    <div class="d5">524815人想看</div>
-                    <div class="d5">5月21日</div>
+                    <div class="d4">{{u.nm}}</div>
+                    <div class="d5">{{u.wish}}人想看</div>
+                    <div class="d5">{{u.comingTitle}}</div>
                 </li>
-                <li>
-                    <div class="d3"><img src="../../assets/pic1.png"></div>
-                    <div class="d4">速度与激情9</div>
-                    <div class="d5">524815人想看</div>
-                    <div class="d5">5月21日</div>
-                </li>
-                <li>
-                    <div class="d3"><img src="../../assets/pic1.png"></div>
-                    <div class="d4">速度与激情9</div>
-                    <div class="d5">524815人想看</div>
-                    <div class="d5">5月21日</div>
-                </li>
-                <li>
-                    <div class="d3"><img src="../../assets/pic1.png"></div>
-                    <div class="d4">速度与激情9</div>
-                    <div class="d5">524815人想看</div>
-                    <div class="d5">5月21日</div>
-                </li>
-            </ul>
+            </ul> 
+               <!-- </el-carousel-item> -->
+               </el-carousel>
+            
         </div>
         <div class="d6">
                <a>4月29日</a>
                <a>周四</a>   
                <ul>
-                 <li>
+                 <li v-for="v,i in datas" :key="i">
                  <div class="u1"><img src="../../assets/pic1.png" alt=""></div>
                   <div class="u2">
-                  <p class="p1">丹顶鹤女孩 <span>2461</span><span>人想看</span></p>
-                  <p class="p2">爱情，剧情</p>
-                  <p class="p2">主演：孙苏雅，郑晓铺，杨迪</p>
-                  <p class="p2">2021-04-29中国大陆上映</p>
-                  <div class="u3">想看</div>
-                  </div>
-                  </li>
-                  <li>
-                 <div class="u1"><img src="../../assets/pic1.png" alt=""></div>
-                  <div class="u2">
-                  <p class="p1">丹顶鹤女孩 <span>2461</span><span>人想看</span></p>
-                  <p class="p2">爱情，剧情</p>
-                  <p class="p2">主演：孙苏雅，郑晓铺，杨迪</p>
-                  <p class="p2">2021-04-29中国大陆上映</p>
-                  <div class="u3">想看</div>
-                  </div>
-                  </li>
-                   <li>
-                 <div class="u1"><img src="../../assets/pic1.png" alt=""></div>
-                  <div class="u2">
-                  <p class="p1">丹顶鹤女孩 <span>2461</span><span>人想看</span></p>
-                  <p class="p2">爱情，剧情</p>
-                  <p class="p2">主演：孙苏雅，郑晓铺，杨迪</p>
-                  <p class="p2">2021-04-29中国大陆上映</p>
+                  <p class="p1">{{v.nm}} <span>{{v.wish}}</span><span>人想看</span></p>
+                  <p class="p2">{{v.cat}}</p>
+                  <p class="p2">{{v.desc}}</p>
+                  <p class="p2">{{v.showInfo}}</p>
                   <div class="u3">想看</div>
                   </div>
                   </li>
                </ul>
+          </div>
         </div>
     </div>
 </template>
 <script>
+  import { mapState ,mapActions } from 'vuex'
  export default {
-    
+    computed:{
+       ...mapState('daiying',['datas']),
+       ...mapState('daiying',['banner'])
+   },
+   mounted(){
+       this.add()
+       this.add2()
+   },
+   methods:{
+        ...mapActions('daiying',['add']),
+        ...mapActions('daiying',['add2'])
+   },
  }
 </script>
 
 <style scoped>
+   .aa{
+       height: 5.1rem;
+       overflow:auto;
+   }
    .d1{
        height: 0.38rem;
        line-height: 0.38rem;
@@ -86,6 +74,7 @@
    .d2{
        overflow: hidden;
        margin-left: 0.15rem;
+       width: 100rem;
        height: 1.88rem;
        background-color: #fff;
        border-bottom: 1px solid #ccc;
@@ -97,9 +86,9 @@
      
    }
    .d2>ul>li{
-       width: 0.85rem ;
+         width: 0.85rem;
          float: left;
-         margin:0 0.04rem ;
+         margin:0 0.04rem;
    }
    .d3{
        width: 0.85rem;
@@ -115,12 +104,14 @@
    }
    .d5{
        font-size: 0.11rem;
+       
        color: #ccc;
    }
    .d6{
        margin: 0.02rem 0 0 0.15rem ;
-       height: 4rem;
-       background-color: #ccc;
+       height: 3rem;
+       /* overflow: auto;  */
+       background-color: #fff;
    }
    .d6>a{
        font-size: 0.15rem;
@@ -145,7 +136,7 @@
         float: left;
         width: 2.6rem;
         margin-top: 0.13rem;
-        background-color: yellow;
+        background-color: #fff;
         height:0.9rem ;
         }
     .u2>p{
