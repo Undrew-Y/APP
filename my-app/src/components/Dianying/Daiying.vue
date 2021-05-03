@@ -83,7 +83,6 @@
    .d2>ul{
        list-style: none;
        width: 100rem;
-     
    }
    .d2>ul>li{
          width: 0.85rem;
