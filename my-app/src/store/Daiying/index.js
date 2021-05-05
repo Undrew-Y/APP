@@ -10,7 +10,7 @@ export default {
             state.datas = payload.data.coming
         },
         add2(state,payload){
-            state.banner = payload.data.coming
+            state.banner = payload.data.data.coming
         }
     },
     actions:{
@@ -29,7 +29,7 @@ export default {
                 url:'/api/mmdb/movie/v1/list/wish/order/coming.json?ci=20&limit=30&offset=0',
                 type:'GET'
             }).then(res =>{
-              commit('add2',res.data)
+              commit('add2',res)
             }
             )
          },

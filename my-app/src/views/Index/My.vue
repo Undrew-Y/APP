@@ -1,5 +1,5 @@
 <template>
-<div>
+    <div>
         <nav>
             <li></li>
             <p>我的订单<span>&gt;</span></p>
@@ -13,9 +13,12 @@
         <footer>
             @猫眼电影 客服电话：<span>1010-5335</span>
         </footer> 
-   </div>           
+   </div>     
 </template>
+
 <script>
+export default {
+}
 
 </script>
 <style lang="scss" scoped>

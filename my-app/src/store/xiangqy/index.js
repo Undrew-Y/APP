@@ -1,18 +1,18 @@
 import axios from 'axios'
-export default {
+export default{
     namespaced:true,
     state:{
-        reying:[],
+        data:[]
     },
     mutations:{
         add(state,payload){
-            state.reying = payload.data.data.hot
+            state.reying = payload
         },
     },
     actions:{
-        add({commit},data){
+        add({commit}){
             axios({
-                  url:`/api/mmdb/movie/v2/list/hot.json?limit=${data.lit?data.lit:12}&offset=0&ct=${data.ct?data.ct:'广州'}`,
+                  url:'/api/mmdb/movie/v7/movie/1351039/celebrities.json',
                   methods:'get',
             }).then(res =>{
               commit('add',res)

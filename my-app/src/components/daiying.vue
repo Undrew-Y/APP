@@ -3,21 +3,22 @@
         <div class="aa">
         <p class="d1">近期最受欢迎</p>
         <div class="d2">
-            <el-carousel :interval="5000" arrow="hover">
-            <!-- <el-carousel-item v-for="item in banner" :key="item"> -->
+            <!-- <el-carousel :interval="5000" arrow="always"> -->
                 <ul style=" list-style: none;
        width: 100rem;">
+        <!-- <el-carousel-item> -->
                 <li v-for="u,i in banner" :key="i" style=" width: 0.85rem;
          float: left;
          margin:0 0.04rem;overflow:auto;">
-                    <div class="d3"><img src="../../assets/pic1.png"></div>
+                    <div class="d3"><img :src="u.img.replace('/w.h','')"></div>
                     <div class="d4">{{u.nm}}</div>
                     <div class="d5">{{u.wish}}人想看</div>
                     <div class="d5">{{u.comingTitle}}</div>
                 </li>
+        <!-- </el-carousel-item> -->
             </ul> 
-               <!-- </el-carousel-item> -->
-               </el-carousel>
+            
+               <!-- </el-carousel> -->
             
         </div>
         <div class="d6">
@@ -25,15 +26,16 @@
                <a>周四</a>   
                <ul>
                  <li v-for="v,i in datas" :key="i">
-                 <div class="u1"><img src="../../assets/pic1.png" alt=""></div>
+                 <div class="u1"><img :src="v.img.replace('/w.h','')" alt=""></div>
                   <div class="u2">
-                  <p class="p1">{{v.nm}} <span>{{v.wish}}</span><span>人想看</span></p>
+                  <p class="p1" @click="goto(i)" >{{v.nm}} <span>{{v.wish}}</span><span>人想看</span></p>
                   <p class="p2">{{v.cat}}</p>
                   <p class="p2">{{v.desc}}</p>
                   <p class="p2">{{v.showInfo}}</p>
                   <div class="u3">想看</div>
                   </div>
                   </li>
+                  <p class="ee" @click="more">点击加载更多</p>
                </ul>
           </div>
         </div>
@@ -52,14 +54,23 @@
    },
    methods:{
         ...mapActions('daiying',['add']),
-        ...mapActions('daiying',['add2'])
+        ...mapActions('daiying',['add2']),
+        goto(i){
+            let id =this.datas[i].id
+            console.log(id);
+            //拿到所点击的电影的id 如何传下去？
+            this.$router.push('/md')
+        },
+        more(){
+            
+        }
    },
  }
 </script>
 
 <style scoped>
    .aa{
-       height: 5.1rem;
+       height: 5.32rem;
        overflow:auto;
    }
    .d1{
@@ -73,14 +84,16 @@
    }
    .d2{
        overflow: hidden;
+       /* box-sizing: border-box; */
        margin-left: 0.15rem;
-       width: 100rem;
+       width: 3.6rem;
        height: 1.88rem;
        background-color: #fff;
        border-bottom: 1px solid #ccc;
    }
 
    .d2>ul{
+       width: 50rem;
        list-style: none;
        width: 100rem;
    }
@@ -175,5 +188,15 @@
         border-radius: 10%;
         background-color: #52b0eb;
         color: #fff;
+    }
+    .ee{
+        width: 100%;
+        text-align: center;
+        font-size: 0.16rem;
+        color: #ccc;
+        cursor: pointer;
+    }
+    .ee:hover{
+        color: red;
     }
 </style>>

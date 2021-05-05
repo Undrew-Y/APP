@@ -60,3 +60,38 @@
         }
     }
 }
+
+@mixin border-left-1px($color: #999) { 
+    // 当设备像素比小值为2的时候
+    @media screen and (-webkit-min-device-pixel-ratio:2) {
+        position: relative;
+        &::before {
+            content: '';
+            border-left: 1px solid $color;
+            transform: scaleX(0.5);
+            height: 100%;
+            left: 0;
+            position: absolute;
+        }
+    }
+
+     // 当设备像素比小值为3的时候
+     @media screen and (-webkit-min-device-pixel-ratio:3) {
+        position: relative;
+        &::before {
+            content: '';
+            border-left: 1px solid $color;
+            transform: scaleX(0.3333);
+            height: 100%;
+            left: 0;
+            position: absolute;
+        }
+    }
+}
+
+@mixin flex-layout($direction:row, $jc: center, $ai: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $jc;
+    align-items: $ai;
+}

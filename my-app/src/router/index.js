@@ -1,19 +1,55 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-Vue.use(Router)
-const router = new Router({
-    // linkExactActiveClass:'act',
-    routes:[
-        { path:'/',redirect:'/dianying'},
-        { path:'/dianying',component:()=>import('@/components/Dianying.vue'),
-         children:[
-             { path:'/dianying',redirect:'/dianying/reying'},
-             { path:'daiying',component:()=>import('@/components/Dianying/Daiying.vue')},
-             { path:'reying',component:()=>import('@/components/Dianying/Reying.vue' )}
-         ]
-        },  
-       { path:'/yingyuan',component:()=>import('@/components/Yingyuan.vue')},
-       { path:'/wode',component:()=>import('@/components/Wode.vue')},
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+    routes: [
+        {
+            path: '/',
+            redirect: '/index/home'
+        },
+        {
+            path: '/index',
+            component: () => import('@/views/Index'),
+            children: [
+                {
+                    path: 'home',
+                    component: () => import('@/views/Index/Home'),
+                    redirect: '/index/home/hot',
+                    children: [
+                        // 热映
+                        {
+                            path: 'hot',
+                            component: () => import('@/views/Index/Home/Hot')
+                        },
+                        // 即将上映
+                        {
+                            path: 'comming',
+                            component: () => import('@/views/Index/Home/CommingSoon')
+                        }
+                    ]
+                },
+                {
+                    path: 'cinema',
+                    component: () => import('@/views/Index/cinema')
+                },
+                {
+                    path: 'my',
+                    component: () => import('@/views/Index/My')
+                }
+            ]
+        },
+        {
+            path: '/location',
+            name: 'location',
+            component: () => import('@/views/diqu'),
+        },
+        {
+            path: '/md',
+            component: () => import('@/views/MovieDetail')
+        },
     ]
 })
+
 export default router
