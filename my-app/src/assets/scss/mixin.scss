@@ -1,0 +1,97 @@
+@mixin icon {
+    font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin border-bottom-1px($color: #999) { 
+    // 当设备像素比小值为2的时候
+    @media screen and (-webkit-min-device-pixel-ratio:2) {
+        position: relative;
+        &::after {
+            position: absolute;
+            content: '';
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            transform: scaleY(0.5);
+            border-bottom: 1px solid $color;
+        }
+    }
+
+     // 当设备像素比小值为3的时候
+     @media screen and (-webkit-min-device-pixel-ratio:3) {
+        position: relative;
+        &::after {
+            position: absolute;
+            content: '';
+            left: 0;
+            width: 100%;
+            bottom: 0;
+            transform: scaleY(0.3333);
+            border-bottom: 1px solid $color;
+        }
+    }
+}
+
+@mixin border-top-1px($color: #999) { 
+    // 当设备像素比小值为2的时候
+    @media screen and (-webkit-min-device-pixel-ratio:2) {
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            border-top: 1px solid $color;
+            transform: scaleY(0.5);
+            width: 100%;
+        }
+    }
+
+     // 当设备像素比小值为3的时候
+     @media screen and (-webkit-min-device-pixel-ratio:3) {
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            border-top: 1px solid $color;
+            transform: scaleY(0.3333);
+            width: 100%;
+        }
+    }
+}
+
+@mixin border-left-1px($color: #999) { 
+    // 当设备像素比小值为2的时候
+    @media screen and (-webkit-min-device-pixel-ratio:2) {
+        position: relative;
+        &::before {
+            content: '';
+            border-left: 1px solid $color;
+            transform: scaleX(0.5);
+            height: 100%;
+            left: 0;
+            position: absolute;
+        }
+    }
+
+     // 当设备像素比小值为3的时候
+     @media screen and (-webkit-min-device-pixel-ratio:3) {
+        position: relative;
+        &::before {
+            content: '';
+            border-left: 1px solid $color;
+            transform: scaleX(0.3333);
+            height: 100%;
+            left: 0;
+            position: absolute;
+        }
+    }
+}
+
+@mixin flex-layout($direction:row, $jc: center, $ai: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $jc;
+    align-items: $ai;
+}
