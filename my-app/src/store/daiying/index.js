@@ -23,7 +23,6 @@ export default {
            }
            )
         },
-
         add2({commit}){
             axios({
                 url:'/api/mmdb/movie/v1/list/wish/order/coming.json?ci=20&limit=30&offset=0',
